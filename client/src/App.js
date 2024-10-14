@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import PostList from './components/PostList';
+import PostDetails from './components/PostDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex h-screen bg-gray-900 text-white">
+      <Sidebar />
+      <div className="flex flex-col w-full">
+        <Header />
+        <div className="flex p-6 gap-4">
+          <PostList />
+        </div>
+      </div>
     </div>
   );
 }
