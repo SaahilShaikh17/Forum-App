@@ -21,7 +21,8 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-
+  
+app.use('/register',require('./routes/register'));
 
 mongoose.connection.once('open',() => {
     console.log('Connected to MongoDB');
