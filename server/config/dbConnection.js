@@ -7,3 +7,5 @@ const connectDB = async() =>{
         console.error(err);
     }
 }
+
+module.exports = connectDB;

@@ -27,3 +27,5 @@ mongoose.connection.once('open',() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => console.log(`App running on port ${PORT}`));
 });
+
+//mongodb+srv://saahils191:<db_password>@forum-app-cluster.7et5d.mongodb.net/?retryWrites=true&w=majority&appName=forum-app-cluster
