@@ -1,21 +1,33 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import PostList from './components/PostList';
-import PostDetails from './components/PostDetails';
+// App.js
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar } from './components/Navbar';
+import { Forum } from './pages/forum/Forum';
+import { About } from './pages/about/about';
+import { LoginScreen } from './pages/login/login';
+import CreatePost from './pages/forum/CreatePost'; // Import as default
+import Profile from './pages/forum/profile';
+import RegisterForm from './pages/register/Register';
+import SinglePostView from './pages/forum/SinglePostView';
 
 function App() {
   return (
-    <div className="flex h-screen bg-gray-900 text-white">
-      <Sidebar />
-      <div className="flex flex-col w-full">
-        <Header />
-        <div className="flex p-6 gap-4">
-          <PostList />
-        </div>
+    <>
+      <div className="App">
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route path="/"  element={<Forum />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/login" element={<LoginScreen />} />
+              <Route path="/register" element={<RegisterForm />} />
+              <Route path="/create-post" element={<CreatePost />} /> {/* Corrected path */}
+              <Route path="/posts/:postId" element={<SinglePostView/>} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          </Router>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,0 +1,31 @@
+.post-card-link {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+    width: 100%; /* Full width */
+}
+
+.post-card {
+    background-color: #292929; /* Dark grey background for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    padding: 20px; /* Padding inside the card */
+    margin-bottom: 20px; /* Space between cards */
+    width: 100%; /* Take full width of the parent */
+    max-width: 800px; /* Max width to maintain readability */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+}
+
+.post-card:hover {
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow on hover */
+}
+
+.post-card h3 {
+    margin-top: 0; /* Remove top margin */
+    color: #ff6a34; /* Title color */
+}
+
+.post-card p {
+    margin: 5px 0; /* Spacing for paragraphs */
+    color: #e0e0e0; /* Light grey for post text */
+}

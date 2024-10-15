@@ -1,0 +1,45 @@
+body {
+    background-color: black;
+    margin-top: 20px;
+    color: #708090;
+    font-family: Arial, sans-serif; /* Add a default font */
+}
+
+.forum-container {
+    padding: 20px;
+    max-width: 800px; /* Center content with a max-width */
+    margin: 0 auto; /* Center the forum container */
+}
+
+.forum-header {
+    text-align: center; /* Center the header text */
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 20px; /* Add space between buttons */
+    margin-bottom: 20px;
+}
+
+.action-button {
+    padding: 10px 15px; /* Add padding for a better click area */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ff6a34; /* Primary button color */
+    color: white; /* Button text color */
+    cursor: pointer;
+    font-weight: bold; /* Bold text for buttons */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.action-button:hover {
+    background-color: #E73725; /* Darker shade on hover */
+}
+
+.post-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow posts to wrap */
+    gap: 20px; /* Space between post cards */
+}

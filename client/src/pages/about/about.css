@@ -1,0 +1,28 @@
+.aboutPage {
+    background-color: #010000;
+    padding: 20px;
+}
+
+.aboutTitle {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    padding: 10px; /* Add padding to give some space around the title */
+}
+
+.futureScope,
+.members,
+.firstPara {
+    margin-top: 20px; /* Add some margin between paragraphs */
+    padding: 20px;
+    text-align: justify;
+    font-size: 20px;
+    color: white;
+}
+
+/* Adjust the color of the about heading */
+.aboutHeading {
+    color: #E73725;
+    font-weight: bold; /* Make the heading bold */
+}
