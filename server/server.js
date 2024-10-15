@@ -14,6 +14,11 @@ const PORT = process.env.PORT || 1337;
 //connecting to database 
 connectDB();
 
+app.use(cors({
+    origin: 'http://localhost:3000',  // Allow requests from this origin
+    methods: ['GET', 'POST'],         // Specify allowed methods
+    credentials: true                 // If needed for cookies/auth headers
+  }));
 
 //Built in middleare to handle urlencoded data, a.k.a, form data
 // 'content-type: application/x-www=form-urlencoded'

@@ -1,0 +1,84 @@
+.single-post-view {
+    background-color: #181818; /* Dark background */
+    color: #e0e0e0; /* Light grey text */
+    padding: 20px;
+    padding-top: 100px; /* Space for the navbar */
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+.post-details {
+    background-color: #202020; /* Slightly lighter dark background for the post */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post-title {
+    margin-bottom: 10px;
+    font-size: 1.8em; /* Larger font for title */
+}
+
+.post-description {
+    margin-bottom: 10px;
+    font-size: 1.1em; /* Slightly larger description text */
+}
+
+.post-author,
+.post-time {
+    font-size: 0.9em; /* Smaller font for author and time */
+    color: #aaaaaa; /* Lighter grey for these details */
+}
+
+.comments-header {
+    margin-top: 30px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #444; /* Divider line */
+}
+
+.comments-list {
+    background-color: #303030; /* Dark background for comments */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #383838; /* Darker background for individual comments */
+    border-radius: 5px;
+}
+
+.comment-input-container {
+    display: flex;
+    flex-direction: column; /* Stack textarea and button */
+}
+
+.comment-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #444; /* Dark border */
+    border-radius: 5px;
+    background-color: #2d2d2d; /* Darker input background */
+    color: #e0e0e0; /* Light grey text for input */
+    resize: none; /* Prevent resizing */
+    height: 60px; /* Fixed height for input */
+}
+
+.add-comment-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background for button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-comment-btn:hover {
+    background-color: #388E3C; /* Darker green on hover */
+}
