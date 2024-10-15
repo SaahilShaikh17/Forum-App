@@ -7,7 +7,8 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const verifyJWT = require('./middleware/verifyJWT');
 const connectDB = require('./config/dbConnection');
-
+const logger = require('./middleware/eventLogger');
+const errorLogger = require('./middleware/errorLogger');
 
 const PORT = process.env.PORT || 1337;
 
@@ -23,7 +24,9 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-  
+
+app.use(logger);
+
 app.use('/register',require('./routes/register'));
 app.use('/users',require('./routes/userRoutes'));
 app.use('/login',require('./routes/auth'));
@@ -33,6 +36,9 @@ app.use('/logout', require('./routes/logout'));
 app.use(verifyJWT);
 app.use('/posts',require('./routes/postRoutes'));
 app.use('/comments',require('./routes/commentRoute'));
+
+app.use(errorLogger);
+
 
 mongoose.connection.once('open',() => {
     console.log('Connected to MongoDB');
