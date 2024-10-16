@@ -4,44 +4,35 @@ const Comment = require('../model/Comment');
 
 // Create a new comment for a specific post
 const createComment = async (req, res) => {
-    const { postId } = req.params; 
+    const { postId } = req.params;
     const { commentText } = req.body;
-    console.log(postId);
-    // Check if commentText exists
+  
     if (!commentText) {
-        return res.status(400).json({ message: 'Enter your comment!' });
+      return res.status(400).json({ message: 'Enter your comment!' });
     }
-
+  
     try {
-        // // Ensure postId is a valid ObjectId
-        // if (!String(mongoose.Types.ObjectId).isValid(postId)) {
-        //     return res.status(400).json({ message: 'Invalid post ID' });
-        // }
-
-        // Find the author of the comment
-        const author = await User.findOne({ username: req.user.id }).exec();
-        if (!author) {
-            return res.status(404).json({ message: 'Author not found' });
-        }
-
-        // Find the post
-        const post = await Post.findById(postId).populate('author', 'username').exec();
-        if (!post) {
-            return res.status(404).json({ message: 'Post not found' });
-        }
-
-        // Create the comment
-        const newComment = await Comment.create({
-            post: postId,
-            comment: commentText,
-            author: author._id
-        });
-
-        res.status(201).json({ message: 'Comment created successfully', comment: newComment });
+      const author = await User.findById(req.user.id).exec(); // Correctly fetching user by ID
+      if (!author) {
+        return res.status(404).json({ message: 'Author not found' });
+      }
+  
+      const post = await Post.findById(postId).exec();
+      if (!post) {
+        return res.status(404).json({ message: 'Post not found' });
+      }
+  
+      const newComment = await Comment.create({
+        post: postId,
+        comment: commentText,
+        author: author._id,
+      });
+  
+      res.status(201).json({ message: 'Comment created successfully', comment: newComment });
     } catch (error) {
-        res.status(500).json({ message: 'Failed to create comment', error: error.message });
+      res.status(500).json({ message: 'Failed to create comment', error: error.message });
     }
-};
+  };
 
 const updateComment = async(req,res) =>{
     const { id } = req.params;

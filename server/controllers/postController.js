@@ -15,26 +15,24 @@ const getAllposts = async (req,res) => {
 
 const createPost = async (req, res) => {
     const { title, description } = req.body;
-
+  
     try {
-        // Find the user by username to get their ObjectId
-        const author = await User.findOne({ username: req.user.id }).exec();
-        if (!author) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-
-        // Create the post with the author set to their ObjectId
-        const newPost = await Post.create({
-            title,
-            description,
-            author: author._id // Set the author to the ObjectId of the user
-        });
-
-        res.status(201).json({ message: 'Post created successfully', post: newPost });
+      const author = await User.findById(req.user.id).exec();
+      if (!author) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      const newPost = await Post.create({
+        title,
+        description,
+        author: author._id,
+      });
+  
+      res.status(201).json({ message: 'Post created successfully', post: newPost });
     } catch (error) {
-        res.status(500).json({ message: 'Failed to create post', error: error.message });
+      res.status(500).json({ message: 'Failed to create post', error: error.message });
     }
-};
+  };
 
 const updatePost = async (req, res) => {
     const postId = req.params.id;

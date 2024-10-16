@@ -12,42 +12,33 @@ const errorLogger = require('./middleware/errorLogger');
 
 const PORT = process.env.PORT || 1337;
 
-//connecting to database 
+// Connect to database
 connectDB();
 
-app.use(cors({
-    origin: 'http://localhost:3000',  // Allow requests from this origin
-    methods: ['GET', 'POST'],         // Specify allowed methods
-    credentials: true                 // If needed for cookies/auth headers
-  }));
-
-//Built in middleare to handle urlencoded data, a.k.a, form data
-// 'content-type: application/x-www=form-urlencoded'
+// Middleware setup
+app.use(cors({ origin: 'http://localhost:3000', methods: ['GET', 'POST','PUT','DELETE'], credentials: true }));
 app.use(express.urlencoded({ extended: false }));
-
 app.use(express.json());
-
 app.use(cookieParser());
-
-
 app.use(logger);
 
-app.use('/register',require('./routes/register'));
-app.use('/users',require('./routes/userRoutes'));
-app.use('/login',require('./routes/auth'));
+// Routes
+app.use('/register', require('./routes/register'));
+app.use('/users', require('./routes/userRoutes'));
+app.use('/login', require('./routes/auth'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
 
 app.use(verifyJWT);
-app.use('/posts',require('./routes/postRoutes'));
-app.use('/comments',require('./routes/commentRoute'));
-
+app.use('/posts', require('./routes/postRoutes'));
+app.use('/comments', require('./routes/commentRoute'));
 app.use(errorLogger);
 
+// Start server and export server instance
+const server = app.listen(PORT, () => console.log(`App running on port ${PORT}`));
 
-mongoose.connection.once('open',() => {
-    console.log('Connected to MongoDB');
-    app.listen(PORT, () => console.log(`App running on port ${PORT}`));
+mongoose.connection.once('open', () => {
+  console.log('Connected to MongoDB');
 });
 
-//mongodb+srv://saahils191:<db_password>@forum-app-cluster.7et5d.mongodb.net/?retryWrites=true&w=majority&appName=forum-app-cluster
+module.exports = app ;//mongodb+srv://saahils191:<db_password>@forum-app-cluster.7et5d.mongodb.net/?retryWrites=true&w=majority&appName=forum-app-cluster
