@@ -32,6 +32,28 @@ describe('User Creation', ()=>{
     expect(user.lastname).toBe('Doe');
   });
 
+  //2. test creating a user with invalid data
+  it('should return 400 for missing required fields', async()=>{
+    const response = await request(app).post('/register').send({
+      user: 'john_doe',
+      pwd: 'Password123',
+    });
 
-})
+    expect(response.status).toBe(400);
+    expect(response.body.message).toBe(
+      ' Username ,Password,First Name and LastName are required');
+  });
+
+  //3. Testing creating user with duplicate username
+  it('should return 409 for duplicate username', async()=>{
+    const response= await request(app).post('/register').send({
+      user:'john_doe',
+      pwd:'Password123',
+      fname:'John',
+      lname:'Doe',
+    });
+
+    expect(response.status).toBe(409);
+  });
+});
 
