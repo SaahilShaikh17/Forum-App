@@ -65,23 +65,27 @@ const SinglePostView = () => {
   return (
     <div className="single-post-view">
       {post && (
-        <div className="post-details">
-          <h2 className="post-title">{post.title}</h2>
-          <p className="post-description">{post.description}</p>
-          {post.author && <p className="post-author">Author: {post.author.username}</p>}
-          <p className="post-time">{new Date(post.time).toLocaleString()}</p>
-        </div>
-      )}
+  <div className="post-details">
+    <h2 className="post-title">{post.title}</h2>
+    <p className="post-description">{post.description}</p>
+    {post.author && <p className="post-author">Author: {post.author.username}</p>}
+    <p className="post-time">{new Date(post.time).toLocaleString()}</p>
+  </div>
+)}
+
 
       <h3 className="comments-header">Comments</h3>
       <div className="comments-list">
-        {Array.isArray(comments) && comments.map(comment => (
-          <div key={comment._id} className="comment">
-            <p className="comment-author">Author: {comment.author.username}</p> {/* Display comment author's name */}
-            <p>{comment.comment}</p>
-          </div>
-        ))}
-      </div>
+  {Array.isArray(comments) && comments.map(comment => (
+    <div key={comment._id} className="comment">
+      <p className="comment-author">
+        {comment.author ? `Author: ${comment.author.username}` : '[deleted]'}
+      </p>
+      <p>{comment.comment}</p>
+    </div>
+  ))}
+</div>
+
 
       <div className="comment-input-container">
         <textarea

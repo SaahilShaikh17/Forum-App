@@ -6,6 +6,11 @@ import { Link } from 'react-router-dom';
 export const Navbar = () => {
   const isLoggedIn = localStorage.getItem('accessToken'); // Check if user is logged in
 
+  const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    window.location.href = '/login';
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -24,7 +29,7 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <div className="nav-actions">
             {isLoggedIn ? (
-              <Link to="/logout" className="btn btn-primary">Logout</Link>
+              <button className="action-button" onClick={handleLogout}>Logout</button>
             ) : (
               <Link to="/login" className="btn btn-secondary">Login</Link>
             )}

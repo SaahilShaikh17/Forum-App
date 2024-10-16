@@ -24,8 +24,10 @@
 .post-description {
     margin-bottom: 10px;
     font-size: 1.1em; /* Slightly larger description text */
+    word-wrap: break-word; /* Ensure long words are wrapped */
+    white-space: pre-line; /* Maintain line breaks in the text */
+    line-height: 1.6; /* Adjust line height for readability */
 }
-
 .post-author,
 .post-time {
     font-size: 0.9em; /* Smaller font for author and time */

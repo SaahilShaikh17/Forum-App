@@ -10,12 +10,10 @@ const PostCard = ({ post }) => {
           <span className="post-time">{new Date(post.time).toLocaleString()}</span>
         </div>
         <h3 className="post-title">{post.title}</h3>
-        <p className="post-description">{post.description}</p>
         <div className="post-footer">
-          <p className="post-author">Author: {post.author.username}</p>
+          {/* Safely access author and username */}
+          <p className="post-author">Author: {post.author?.username || '[deleted]'}</p>
           <div className="post-stats">
-            <button className="upvote-button">↑ {post.upvotes.length}</button>
-            <p className="post-comments">Comments: {post.comments.length}</p>
           </div>
         </div>
       </div>
