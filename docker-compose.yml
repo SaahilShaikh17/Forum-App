@@ -1,21 +1,36 @@
-version: '3.8'
 services:
   frontend:
     image: saahils171/forum-client:latest
     ports:
       - "3000:3000"
     restart: always
+    depends_on:
+      - backend
 
   backend:
     image: saahils171/forum-server:latest
     ports:
       - "5000:5000"
     env_file:
-      - ./server/.env   
+      - ./server/.env
     restart: always
+    depends_on:
+      - db
+    environment:
+      - DB_URI=mongodb://db:27017/forum
 
   db:
     image: mongo:latest
     ports:
       - "27017:27017"
     restart: always
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  mongo_data:
