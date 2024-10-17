@@ -1,4 +1,3 @@
-// navbar.jsx
 import "./navbar.css";
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link className="navbar-brand" to="/">What Do We Call This</Link>
+        <Link className="navbar-brand" to="/">Pipeline of Doom</Link>
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -29,9 +28,9 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <div className="nav-actions">
             {isLoggedIn ? (
-              <button className="action-button" onClick={handleLogout}>Logout</button>
+              <button className="btn btn-logout" onClick={handleLogout}>Logout</button>
             ) : (
-              <Link to="/login" className="btn btn-secondary">Login</Link>
+              <Link to="/login" className="btn btn-login">Login</Link>
             )}
           </div>
         </div>

@@ -1,10 +1,10 @@
 /* Main navbar styling */
 .navbar {
-  background-color: #E73725; /* Navbar background color */
+  background-color: #1A1A1B; /* Dark background for navbar */
   position: fixed; /* Fixed position */
   top: 0; /* Align to top */
   width: 100%; /* Full width */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
   z-index: 1000; /* Ensure it sits above other content */
 }
 
@@ -20,7 +20,7 @@
 
 /* Brand styling */
 .navbar-brand {
-  color: #ffffff; /* Brand text color */
+  color: #FF4500; /* Reddit's orange for brand */
   font-size: 28px; /* Brand font size */
   font-weight: bold; /* Bold brand */
   text-decoration: none; /* Remove underline */
@@ -43,7 +43,7 @@
 }
 
 .nav-link {
-  color: #ffffff; /* Link color */
+  color: #d7dadc; /* Light grey color for links */
   font-size: 18px; /* Font size for links */
   text-decoration: none; /* Remove underline */
   transition: color 0.3s; /* Smooth transition for color change */
@@ -69,31 +69,31 @@
   transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
 }
 
-/* Primary button (Logout) */
-.btn-primary {
-  background-color: #000000; /* Gold color for logout */
-  color: #E73725; /* Navbar color */
+/* Logout button */
+.btn-logout {
+  background-color: #FF4500; /* Reddit's orange */
+  color: white; /* White text */
 }
 
-/* Secondary button (Login) */
-.btn-secondary {
-  background-color: #ffffff; /* White background for login */
-  color: #E73725; /* Navbar color */
+/* Login button */
+.btn-login {
+  background-color: #FF4500; /* White background for login */
+  color: #f2eeec; /* Reddit's orange text */
 }
 
 /* Hover effects for buttons */
-.btn-primary:hover {
-  background-color: #040101; /* Darker gold on hover */
+.btn-logout:hover {
+  background-color: #e03d00; /* Darker orange on hover */
 }
 
-.btn-secondary:hover {
-  background-color: #f0f0f0; /* Light gray on hover */
+.btn-login:hover {
+  background-color: #ff0000; /* Light gray on hover */
 }
 
 /* Media query for mobile devices */
 @media (max-width: 767px) {
   .navbar-collapse.show {
-    background-color: #E73725; /* Background color for mobile menu */
+    background-color: #1A1A1B; /* Background color for mobile menu */
   }
   
   .nav-item {

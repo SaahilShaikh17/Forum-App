@@ -1,73 +1,88 @@
+/* Register Page CSS */
+body {
+  background-color: #1a1a1b;
+  color: #d7dadc;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .registerPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #121212; /* Dark background */
-    color: #E1E1E1; /* Light grey text */
-    padding: 20px;
-  }
-  
-  .registerHeader {
-    margin-bottom: 20px; /* Add some space below the header */
-    color: #E1E1E1;
-    font-size: 2em; /* Larger header font size */
-  }
-  
-  .registerForm {
-    width: 100%;
-    max-width: 400px; /* Max width for the form */
-    background-color: #202020; /* Slightly lighter dark background for the form */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Padding around the form */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-  }
-  
-  .formGroup {
-    margin-bottom: 15px;
-  }
-  
-  .formGroup label {
-    display: block;
-    margin-bottom: 5px;
-    color: #E1E1E1; /* Label color */
-  }
-  
-  .formGroup input {
-    width: 100%;
-    padding: 10px; /* Increased padding for input */
-    font-size: 16px;
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded input corners */
-    background-color: #2a2a2a; /* Darker input background */
-    color: #E1E1E1; /* Input text color */
-    transition: background-color 0.3s ease; /* Transition for hover */
-  }
-  
-  .formGroup input:focus {
-    outline: none; /* Remove outline */
-    background-color: #333; /* Slightly lighter background on focus */
-  }
-  
-  .registerButton {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #ff1e00; /* Button color */
-    color: #fff;
-    border: none;
-    border-radius: 5px; /* Rounded button corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Transition for hover */
-  }
-  
-  .registerButton:hover {
-    background-color: #c40000; /* Darker red on hover */
-  }
-  
-  .error-message {
-    color: #ff1e00; /* Red for error messages */
-    margin-bottom: 15px;
-  }
-  
+  max-width: 400px;
+  margin: 100px auto;
+  background-color: #272729;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.registerHeader {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.error-message {
+  color: #ff5555;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #d7dadc;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #343536;
+  border-radius: 4px;
+  background-color: #1c1c1e;
+  color: #d7dadc;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #ff4500;
+}
+
+.registerButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff4500;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.registerButton:hover {
+  background-color: #ff4500;
+}
+
+.registerPrompt {
+  text-align: center;
+  margin-top: 15px;
+  color: #818384;
+}
+
+.registerLink {
+  color: #ff4500;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.registerLink:hover {
+  color: #ff4500;
+  text-decoration: underline;
+}
