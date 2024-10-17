@@ -5,13 +5,13 @@ const app = require("../app");
 
 require("dotenv").config();
 
+let createdUserId;
+
 beforeEach(async () =>{
   await mongoose.connect(process.env.DATABASE_URI);
 },50000);
 
-afterEach(async() =>{
-  await mongoose.connection.close();
-});
+
 
 describe('User Creation', ()=>{
   //1. Test creating a new user with valid data
@@ -30,6 +30,7 @@ describe('User Creation', ()=>{
     expect(user).not.toBeNull();
     expect(user.firstname).toBe('John');
     expect(user.lastname).toBe('Doe');
+    createdUserId = user;
   });
 
   //2. test creating a user with invalid data
@@ -56,4 +57,12 @@ describe('User Creation', ()=>{
     expect(response.status).toBe(409);
   });
 });
+
+afterAll(async() =>{
+  if (createdUserId) {
+    await User.deleteOne({ _id: createdUserId._id });
+  }
+  await mongoose.connection.close();
+});
+
 
