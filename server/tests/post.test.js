@@ -3,7 +3,7 @@ const request = require('supertest');
 const User = require('../model/User');
 const Post = require('../model/Post');
 const app = require('../app');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 require('dotenv').config();
 

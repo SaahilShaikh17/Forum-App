@@ -1,6 +1,6 @@
 // Controller to  create user in DB.
 const User = require('../model/User');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const handleNewUser = async(req,res) => {
 
