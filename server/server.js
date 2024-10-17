@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/dbConnection');
 const app = require('./app'); // Import the Express app
 
-const PORT = process.env.PORT || 1337;
+const PORT = process.env.PORT || 5000;
 
 // Connect to the database
 connectDB();
