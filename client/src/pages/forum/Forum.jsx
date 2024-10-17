@@ -17,7 +17,7 @@ export const Forum = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:1337/posts', {
+        const response = await axios.get('http://localhost:5000/posts', {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }
@@ -69,13 +69,14 @@ export const Forum = () => {
         </div>
       ) : (
         <div className="login-prompt">
-          <h2>Welcome to the Forum!</h2>
-          <p>Please log in to view and participate in discussions.</p>
-          <Link to="/login">
-            <button className="login-button">Log In</button>
-          </Link>
-          <p>Don't have an account? <Link to="/register">Sign up here!</Link></p>
-        </div>
+  <h2 className="login-heading">Welcome to the Forum!</h2>
+  <p className="login-text">Please log in to view and participate in discussions.</p>
+  <Link to="/login">
+    <button className="login-button">Log In</button>
+  </Link>
+  <p className="login-text last-text">Don't have an account? <Link to="/register" className="link signup-link">Sign up here!</Link></p>
+</div>
+
       )}
     </div>
   );

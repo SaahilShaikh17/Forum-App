@@ -8,7 +8,7 @@ const Profile = ({ userId }) => {
     
     const handleUpdate = async () => {
         try {
-            await axios.put(`http://localhost:1337/users/${userId}`, {
+            await axios.put(`http://localhost:5000/users/${userId}`, {
                 firstname: fname,
                 lastname: lname,
                 username: user
@@ -22,7 +22,7 @@ const Profile = ({ userId }) => {
   
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:1337/users/${userId}`);
+            await axios.delete(`http://localhost:5000/users/${userId}`);
             // Handle success, maybe show a success message or redirect
         } catch (error) {
             console.error('Error deleting profile:', error);

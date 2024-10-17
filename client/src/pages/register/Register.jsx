@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './register.css'; // New CSS file for RegisterForm
+import './register.css';
 import { Link } from 'react-router-dom';
 
 function RegisterForm() {
@@ -49,7 +49,7 @@ function RegisterForm() {
     }
 
     try {
-      const response = await axios.post('http://backend:5000/register', { 
+      const response = await axios.post('http://localhost:5000/register', { 
         user, 
         pwd, 
         fname, 
@@ -78,6 +78,7 @@ function RegisterForm() {
             value={fname}
             onChange={handleFirstNameChange}
             required
+            className='formInput'
           />
         </div>
         <div className='formGroup'>
@@ -88,6 +89,7 @@ function RegisterForm() {
             value={lname}
             onChange={handleLastNameChange}
             required
+            className='formInput'
           />
         </div>
         <div className='formGroup'>
@@ -98,6 +100,7 @@ function RegisterForm() {
             value={user}
             onChange={handleUsernameChange}
             required
+            className='formInput'
           />
         </div>
         <div className='formGroup'>
@@ -108,11 +111,14 @@ function RegisterForm() {
             value={pwd}
             onChange={handlePasswordChange}
             required
+            className='formInput'
           />
         </div>
         <button type="submit" className='registerButton'>Register</button>
       </form>
-      <p className='registerPrompt'>Already have an account? <Link to="/login" className='registerLink'>Login</Link></p>
+      <p className='registerPrompt'>
+        Already have an account? <Link to="/login" className='registerLink'>Login</Link>
+      </p>
     </div>
   );
 }
