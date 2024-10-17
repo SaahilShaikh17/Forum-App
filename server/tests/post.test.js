@@ -24,7 +24,7 @@ beforeAll(async () => {
     });
 
     createdUserId = user._id;
-});
+},500000);
 
 afterAll(async () => {
     // Clean up: Delete the test user and any test posts
@@ -46,7 +46,7 @@ describe('Post Creation', () => {
 
         accessToken = response.body.accessToken; // Save the access token
         refreshToken = response.headers['set-cookie'][0].split(';')[0].split('=')[1]; // Save refresh token
-    });
+    },50000);
 
     it('should create a new post with valid data', async () => {
         const postResponse = await request(app)

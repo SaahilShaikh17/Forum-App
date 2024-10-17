@@ -22,7 +22,7 @@ beforeAll(async () => {
     });
 
     createdUserId = user._id;
-});
+},50000);
 
 afterAll(async () => {
     // Clean up: Delete the test user
