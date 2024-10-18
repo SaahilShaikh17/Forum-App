@@ -20,18 +20,36 @@ export const LoginScreen = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/login', { user, pwd });
+        const response = await axios.post('http://localhost:5000/login', { user, pwd });
 
-      // Handle successful login
-      const { accessToken, userId } = response.data;
-      localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('userId', userId);
-      window.location.href = '/'; // Redirect to the dashboard after successful login
+        // Log the full response for debugging
+        console.log('Login response:', response);
+
+        if (response && response.data) {
+            const { accessToken, userId } = response.data;
+
+            // Store the accessToken and userId in localStorage
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('userId', userId);
+
+            // Redirect to the dashboard after successful login
+            window.location.href = '/';
+        } else {
+            // If response.data is undefined, show an error
+            setError('Login failed: No data received from server.');
+        }
     } catch (error) {
-      console.error('Login failed:', error.response.data.message);
-      setError('Invalid username or password');
+        console.error('Login failed:', error);
+
+        // Check if error.response exists and log it for debugging
+        if (error.response && error.response.data) {
+            setError(error.response.data.message || 'Invalid username or password');
+        } else {
+            setError('Login failed: No response from server.');
+        }
     }
-  };
+};
+
 
   return (
     <div className="login-container">

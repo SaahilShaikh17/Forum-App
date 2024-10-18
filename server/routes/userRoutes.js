@@ -8,6 +8,7 @@ router.route('/')
     
 
     router.route('/:userId')
+    .get(UserController.getUserById)
     .put(UserController.updateUser)
     .delete(UserController.deleteUser).get()
 

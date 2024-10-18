@@ -6,6 +6,22 @@ const getAllUsers = async (req,res) => {
     res.json(users);
 }
 
+const getUserById = async (req, res) => {
+    try {
+        const { userId } = req.params; // Get userId from request parameters
+        const user = await User.findById(userId).exec(); // Fetch user by ID
+
+        if (!user) {
+            return res.status(404).json({ message: `No user found with ID ${userId}` });
+        }
+
+        res.json(user); // Return user data
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
 const updateUser = async (req, res) => {
     try {
         const {userId} = req.params; 
@@ -50,5 +66,6 @@ const updateUser = async (req, res) => {
 module.exports={
     updateUser,
     deleteUser,
-    getAllUsers
+    getAllUsers,
+    getUserById
 }
