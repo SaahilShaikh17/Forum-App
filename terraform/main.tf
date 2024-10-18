@@ -106,8 +106,24 @@ resource "kubernetes_deployment" "backend" {
         container {
           image = "forumacr12345.azurecr.io/forum-server:latest"
           name  = "backend"
+
+          env {
+            name  = "DATABASE_URI"
+            value = "mongodb+srv://saahils191:xnFT3FaE3lgn7HQG@forum-app-cluster.7et5d.mongodb.net/?retryWrites=true&w=majority&appName=forum-app-cluster"
+          }
+
+          env {
+            name  = "ACCESS_TOKEN_SECRET"
+            value = "65a067d64322d1c7716c68a67965c288b11c5aa5477d1bfa123f82d4fefade5f2065d035997ea634d4bcfd91f059240a02184d1b3eecb35625dadccbf3ea52cf"
+          }
+
+          env {
+            name  = "REFRESH_TOKEN_SECRET"
+            value = "b22d22203c23c28096c2848638a1614632c74d28c36254f3b6dda88d4108422590a9e85d5cb2126972a864497dff97bbbb399750920c6c60fe282a399df9a90b"
+          }
+
           port {
-            container_port = 5000  # Corrected block type from ports to port
+            container_port = 5000
           }
         }
       }
@@ -120,10 +136,7 @@ resource "kubernetes_service" "backend" {
   metadata {
     name = "backend-service"
     labels = {
-      app        = "backend"
-      environment = "development"
-      project     = "Forum-App"
-      owner       = "Saahil"
+      app = "backend"
     }
   }
 
@@ -132,7 +145,7 @@ resource "kubernetes_service" "backend" {
       app = "backend"
     }
 
-    type = "ClusterIP"  # Internal service to communicate with frontend
+    type = "LoadBalancer"
 
     port {
       port        = 5000
