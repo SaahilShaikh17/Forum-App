@@ -48,7 +48,6 @@ export const Forum = () => {
             <Link to="/create-post">
               <button className="action-button">Create Post</button>
             </Link>
-            <button className="action-button" onClick={handleLogout}>Logout</button>
             <Link to="/profile">
               <button className="action-button">Update Profile</button>
             </Link>

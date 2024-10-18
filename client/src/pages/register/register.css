@@ -7,13 +7,24 @@ body {
   padding: 0;
 }
 
+.register-container {
+  margin-top: 60px;
+  display: flex; /* Use flexbox for centering the register page */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: calc(100vh - 60px); /* Adjust for navbar height, change 60px as needed */
+}
+
 .registerPage {
   max-width: 400px;
-  margin: 100px auto;
+  width: 100%; /* Ensure it takes full width within the max width */
   background-color: #272729;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  display: flex; /* Use flexbox for vertical alignment */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align child elements */
 }
 
 .registerHeader {
@@ -31,6 +42,7 @@ body {
 
 .formGroup {
   margin-bottom: 20px;
+  width: 100%; /* Ensure full width */
 }
 
 label {
@@ -67,7 +79,7 @@ label {
 }
 
 .registerButton:hover {
-  background-color: #ff4500;
+  background-color: #ff4d0c; /* Slightly different color on hover for contrast */
 }
 
 .registerPrompt {
@@ -83,6 +95,6 @@ label {
 }
 
 .registerLink:hover {
-  color: #ff4500;
+  color: #ff4d0c; /* Hover color for contrast */
   text-decoration: underline;
 }
