@@ -29,19 +29,19 @@ const CreatePost = ({ history }) => {
 
   return (
     <div className="create-post-container">
-      <h2>Create Post</h2>
-      <form onSubmit={handleSubmit} className="create-post-form">
+    <form className="create-post-form">
         <div className="form-group">
-          <label>Title:</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="form-control" required />
+            <label htmlFor="postTitle">Post Title:</label>
+            <input type="text" id="postTitle" />
         </div>
         <div className="form-group">
-          <label>Description:</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="form-control" required />
+            <label htmlFor="postContent">Post Content:</label>
+            <textarea id="postContent" rows="5"></textarea>
         </div>
-        <button type="submit" className="submit-button">Submit</button>
-      </form>
-    </div>
+        <button type="submit" className="submit-button">Create Post</button>
+    </form>
+</div>
+
   );
 };
 

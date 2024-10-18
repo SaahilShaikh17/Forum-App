@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './profile.css'
 
 const Profile = () => {
     const [firstname, setFirstName] = useState('');
@@ -83,25 +84,26 @@ const Profile = () => {
     };
 
     return (
-        <div>
-            <h2>Profile Update</h2>
-            <form>
-                <div>
-                    <label htmlFor="firstName">First Name:</label>
-                    <input type="text" id="firstName" value={firstname} onChange={e => setFirstName(e.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="lastName">Last Name:</label>
-                    <input type="text" id="lastName" value={lastname} onChange={e => setLastName(e.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" value={username} onChange={e => setUsername(e.target.value)} />
-                </div>
-                <button type="button" onClick={handleUpdate}>Update Profile</button>
-            </form>
-            {message && <p>{message}</p>}
+        <div className="profile-update-container">
+    <h2>Profile Update</h2>
+    <form className="profile-form">
+        <div className="form-group">
+            <label htmlFor="firstName">First Name:</label>
+            <input type="text" id="firstName" value={firstname} onChange={e => setFirstName(e.target.value)} />
         </div>
+        <div className="form-group">
+            <label htmlFor="lastName">Last Name:</label>
+            <input type="text" id="lastName" value={lastname} onChange={e => setLastName(e.target.value)} />
+        </div>
+        <div className="form-group">
+            <label htmlFor="username">Username:</label>
+            <input type="text" id="username" value={username} onChange={e => setUsername(e.target.value)} />
+        </div>
+        <button type="button" className="update-btn" onClick={handleUpdate}>Update Profile</button>
+    </form>
+    {message && <p className="message">{message}</p>}
+</div>
+
     );
 };
 

@@ -66,6 +66,7 @@ function RegisterForm() {
   };
 
   return (
+    <div className="register-container">
     <div className='registerPage'>
       <h2 className='registerHeader'>Register</h2>
       {error && <p className='error-message'>{error}</p>}
@@ -119,6 +120,7 @@ function RegisterForm() {
       <p className='registerPrompt'>
         Already have an account? <Link to="/login" className='registerLink'>Login</Link>
       </p>
+    </div>
     </div>
   );
 }
