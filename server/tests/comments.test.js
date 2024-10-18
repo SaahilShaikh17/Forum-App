@@ -4,7 +4,7 @@ const User = require('../model/User');
 const Post = require('../model/Post');
 const Comment = require('../model/Comment');
 const app = require('../app');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 require('dotenv').config();
 
