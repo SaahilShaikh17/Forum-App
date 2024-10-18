@@ -29,7 +29,7 @@ const Profile = () => {
                 console.log('Fetching user with token:', token); // Log token
 
                 // Fetch user profile by userId
-                const response = await axios.get(`http://localhost:5000/users/${userId}`, {
+                const response = await axios.get(`http://backend-service:5000/users/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}` // Token in Authorization header
                     }
@@ -64,7 +64,7 @@ const Profile = () => {
             // Log the data being sent in the update request
             console.log('Update data:', { firstname, lastname, username });
 
-            const response = await axios.put(`http://localhost:5000/users/${userId}`, {
+            const response = await axios.put(`http://backend-service:5000/users/${userId}`, {
                 firstname,
                 lastname,
                 username
