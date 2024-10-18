@@ -10,7 +10,7 @@ const CreatePost = ({ history }) => {
     e.preventDefault();
     try {
       const accessToken = localStorage.getItem('accessToken');
-      await axios.post('http://backend-service:5000/posts', {
+      await axios.post('http://57.155.16.77/posts', {
         title,
         description
       }, {

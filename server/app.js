@@ -10,11 +10,15 @@ const verifyJWT = require('./middleware/verifyJWT');
 const app = express();
 
 // Middleware setup
-app.use(cors({ 
-  origin: '*', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-  credentials: true 
-}));
+const corsOptions = {
+  origin: '*', // Allow all origins (for development); restrict to frontend's URL in production
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true, // Allow cookies if needed
+};
+
+app.use(cors(corsOptions));
+
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());

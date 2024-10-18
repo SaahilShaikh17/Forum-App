@@ -15,7 +15,7 @@ const SinglePostView = () => {
         const accessToken = localStorage.getItem('accessToken');
         
         // Fetch the post details
-        const postResponse = await axios.get(`http://backend-service:5000/posts/${postId}`, {
+        const postResponse = await axios.get(`http://57.155.16.77/posts/${postId}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }
@@ -23,7 +23,7 @@ const SinglePostView = () => {
         setPost(postResponse.data.post);
 
         // Fetch the comments for the post
-        const commentsResponse = await axios.get(`http://backend-service:5000/comments/post/${postId}`, {
+        const commentsResponse = await axios.get(`http://57.155.16.77/comments/post/${postId}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }
@@ -41,7 +41,7 @@ const SinglePostView = () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
 
-      await axios.post(`http://backend-service:5000/comments/post/${postId}`, {
+      await axios.post(`http://57.155.16.77/comments/post/${postId}`, {
         commentText: newComment
       }, {
         headers: {
@@ -50,7 +50,7 @@ const SinglePostView = () => {
       });
 
       // Refetch the comments to update the UI
-      const commentsResponse = await axios.get(`http://backend-service:5000/comments/post/${postId}`, {
+      const commentsResponse = await axios.get(`http://57.155.16.77/comments/post/${postId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`
         }
