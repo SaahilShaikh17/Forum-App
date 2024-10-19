@@ -49,7 +49,7 @@ function RegisterForm() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/register', { 
+      const response = await axios.post('http://20.247.172.63:5000/register', { 
         user, 
         pwd, 
         fname, 

@@ -11,9 +11,9 @@ const app = express();
 
 // Middleware setup
 const corsOptions = {
-  origin: '*', // Allow all origins (for development); restrict to frontend's URL in production
+  origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true, // Allow cookies if needed
+  credentials: true, 
 };
 
 app.use(cors(corsOptions));

@@ -17,7 +17,7 @@ export const Forum = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://57.155.16.77/posts', {
+        const response = await axios.get('http://20.247.172.63:5000/posts', {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }

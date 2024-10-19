@@ -20,7 +20,7 @@ export const LoginScreen = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/login', { user, pwd });
+      const response = await axios.post('http://20.247.172.63:5000/login', { user, pwd });
 
       // Handle successful login
       const { accessToken, userId } = response.data;
